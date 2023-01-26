@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: fallback;
+        src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVIGxA.woff2)
+          format("woff2");
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+      }
+      @media all {
+        * {
+          box-sizing: inherit;
+        }
+
+        .main-header-bar-wrap {
+          position: relative;
+        }
+
+        .site-header {
+          z-index: 99;
+          position: relative;
+        }
+
+        #page {
+          display: block;
+          position: relative;
+        }
+
+        body {
+          border: 0;
+          font-size: 100%;
+          font-style: normal;
+          font-weight: inherit;
+          margin: 0;
+          outline: 0;
+          padding: 0;
+          vertical-align: baseline;
+          color: #808285;
+          background: #fff;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          line-height: 1.85714285714286;
+          background-color: #fff;
+          overflow-x: hidden;
+        }
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.8em;
+        color: var(--ast-global-color-3);
+        background-color: var(--ast-global-color-4);
+        background-image: none;
+        margin: 0;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+      }
+
+      @media all {
+        body:not(.logged-in) {
+          position: relative;
+        }
+
+        html {
+          border: 0;
+          font-size: 100%;
+          font-style: inherit;
+          font-weight: inherit;
+          margin: 0;
+          outline: 0;
+          padding: 0;
+          vertical-align: baseline;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+          box-sizing: border-box;
+        }
+      }
+
+      html {
+        font-size: 100%;
+      }
+
+      :root {
+        --ast-global-color-0: #f23d49;
+        --ast-global-color-1: #e23849;
+        --ast-global-color-2: #18191a;
+        --ast-global-color-3: #5b5d68;
+        --ast-global-color-4: #f8fcfe;
+        --ast-global-color-5: #ffffff;
+        --ast-global-color-6: #000000;
+        --ast-global-color-7: #fbfcff;
+        --ast-global-color-8: #bfd1ff;
+        --ast-border-color: #bab9b9;
+      }
+
+      @media all {
+        .main-header-bar {
+          background-color: #fff;
+          border-bottom-color: var(--ast-border-color);
+          border-bottom-style: solid;
+          margin-left: auto;
+          margin-right: auto;
+          z-index: 4;
+          position: relative;
+        }
+      }
+
+      @media (min-width: 922px) {
+        .main-header-bar {
+          border-bottom-width: 0px;
+        }
+      }
+
+      .main-header-bar {
+        padding: 1em 0;
+      }
+
+      @media (min-width: 922px) {
+        .ast-primary-header-bar {
+          border-bottom-width: 0;
+          border-bottom-style: solid;
+        }
+      }
+
+      .ast-primary-header-bar {
+        display: block;
+        background-image: linear-gradient(to right, #e1000f, #e1000f),
+          url("images/293698969_110681138384491_1335682486238860142_n.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: auto;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+      }
+
+      @media all {
+        *,
+        :after,
+        :before {
+          box-sizing: inherit;
+        }
+
+        :selection {
+          color: #fff;
+          background: #0274be;
+        }
+      }
+
+      :selection {
+        background-color: #0033a0;
+        color: #ffffff;
+      }
+
+      @media all {
+        .ast-container {
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .ast-builder-grid-row-container {
+          display: grid;
+          align-content: center;
+        }
+      }
+
+      @media (min-width: 544px) {
+        .ast-container {
+          max-width: 100%;
+        }
+      }
+
+      @media (min-width: 922px) {
+        .ast-container {
+          max-width: 1240px;
+        }
+      }
+
+      .site-primary-header-wrap {
+        min-height: 30px;
+      }
+
+      @media all {
+        #primary:after,
+        #primary:before,
+        #secondary:after,
+        #secondary:before,
+        .ast-container:after,
+        .ast-container:before,
+        .ast-row:after,
+        .ast-row:before,
+        .clear:after,
+        .clear:before,
+        .sidebar-main:after,
+        .sidebar-main:before,
+        .site-content:after,
+        .site-content:before,
+        .site-footer:after,
+        .site-footer:before,
+        .site-header:after,
+        .site-header:before,
+        .site-main:after,
+        .site-main:before {
+          content: "";
+          display: table;
+        }
+
+        .ast-container-fluid:after,
+        .ast-container:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        #primary:after,
+        #secondary:after,
+        .ast-container:after,
+        .ast-row:after,
+        .clear:after,
+        .sidebar-main:after,
+        .site-content:after,
+        .site-footer:after,
+        .site-header:after,
+        .site-main:after {
+          clear: both;
+        }
+
+        .ast-builder-grid-row {
+          display: grid;
+          grid-template-columns: auto auto;
+          align-items: center;
+          grid-column-gap: 20px;
+          overflow-wrap: anywhere;
+        }
+
+        .site-header-section {
+          height: 100%;
+          min-height: 0;
+          align-items: center;
+        }
+
+        .ast-flex {
+          -js-display: flex;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+
+      .ast-flex {
+        -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      @media all {
+        .ast-builder-grid-row > .site-header-section {
+          flex-wrap: nowrap;
+        }
+
+        .ast-grid-right-section {
+          justify-content: flex-end;
+        }
+
+        .ast-builder-layout-element {
+          align-items: center;
+        }
+
+        .site-header-section > * {
+          padding: 0 10px;
+        }
+      }
+
+      .ast-builder-layout-element[data-section="title_tagline"] {
+        display: flex;
+      }
+
+      @media all {
+        .site-header-section > div:first-child {
+          padding-left: 0;
+        }
+
+        .site-header-section > div:last-child {
+          padding-right: 0;
+        }
+      }
+
+      .ast-builder-menu-1 {
+        display: flex;
+        font-family: inherit;
+        font-weight: 700;
+      }
+
+      @media all {
+        .site-header-section .ast-builder-menu {
+          align-items: center;
+        }
+
+        .site-branding {
+          line-height: 1;
+          align-self: center;
+        }
+
+        .ast-site-identity {
+          padding: 1em 0;
+        }
+      }
+
+      .ast-site-identity {
+        padding: 0;
+      }
+
+      .ast-builder-layout-element .ast-site-identity {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+
+      @media all {
+        .ast-main-header-bar-alignment {
+          margin-left: auto;
+        }
+
+        .site-header-section .ast-main-header-bar-alignment {
+          height: 100%;
+        }
+
+        .main-header-bar-navigation {
+          height: 100%;
+        }
+
+        a {
+          background-color: transparent;
+          color: #4169e1;
+          text-decoration: none;
+          transition: all 0.2s linear;
+        }
+      }
+
+      a {
+        color: #0033a0;
+      }
+
+      a:where(:not(.wp-element-button)) {
+        text-decoration: none;
+      }
+
+      @media all {
+        a,
+        a:visited {
+          text-decoration: none;
+        }
+
+        a,
+        a:hover,
+        a:visited {
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: #191970;
+          outline: 0;
+        }
+      }
+
+      a:hover {
+        color: #02aec7;
+      }
+
+      @media all {
+        nav {
+          display: block;
+        }
+
+        .site-navigation {
+          height: 100%;
+        }
+
+        .ast-flex-grow-1 {
+          flex-grow: 1;
+        }
+
+        img {
+          border: 0;
+          height: auto;
+          max-width: 100%;
+          vertical-align: middle;
+        }
+
+        a * {
+          transition: all 0.2s linear;
+        }
+      }
+
+      .site-logo-img img {
+        transition: all 0.2s linear;
+      }
+
+      .custom-logo-link img {
+        max-width: 185px;
+      }
+
+      @media all {
+        .main-navigation {
+          height: 100%;
+          -js-display: inline-flex;
+          display: inline-flex;
+        }
+
+        .ast-inline-flex {
+          -js-display: inline-flex;
+          display: inline-flex;
+          align-items: center;
+          flex-wrap: wrap;
+          align-content: center;
+        }
+
+        .ast-builder-menu .main-navigation {
+          padding: 0;
+        }
+
+        ul {
+          border: 0;
+          font-size: 100%;
+          font-style: inherit;
+          font-weight: inherit;
+          margin: 0 0 1.5em 3em;
+          outline: 0;
+          padding: 0;
+          vertical-align: baseline;
+          list-style: disc;
+          box-sizing: border-box;
+        }
+
+        .main-navigation ul {
+          list-style: none;
+          margin: 0;
+          padding-left: 0;
+          position: relative;
+        }
+
+        .ast-builder-menu .main-navigation > ul {
+          align-self: center;
+        }
+
+        li {
+          border: 0;
+          font-size: 100%;
+          font-style: inherit;
+          font-weight: inherit;
+          margin: 0;
+          outline: 0;
+          padding: 0;
+          vertical-align: baseline;
+        }
+
+        .main-header-menu .menu-item {
+          position: relative;
+        }
+      }
+
+      .ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {
+        line-height: 30px;
+      }
+
+      @media all {
+        .main-header-menu .menu-link {
+          text-decoration: none;
+          padding: 0 1em;
+          display: inline-block;
+          transition: all 0.2s linear;
+        }
+      }
+
+      .ast-builder-menu-1 .menu-item > .menu-link {
+        color: var(--ast-global-color-5);
+      }
+
+      .ast-builder-menu-1 .menu-item.current-menu-item > .menu-link {
+        color: #10f4e9;
+      }
+
+      .ast-builder-menu-1 .menu-item:hover > .menu-link {
+        color: #10f4e9;
+      }
+
+      .ast-desktop .ast-menu-hover-style-zoom > .menu-item > .menu-link:hover {
+        transition: all 0.3s ease;
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="ast-primary-header-bar ast-primary-header main-header-bar site-header-focus-item snipcss-InGnc"
+      data-section="section-primary-header-builder"
+    >
+      <div
+        class="site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container"
+        data-section="section-primary-header-builder"
+      >
+        <div
+          class="ast-builder-grid-row ast-builder-grid-row-has-sides ast-builder-grid-row-no-center"
+        >
+          <div
+            class="site-header-primary-section-left site-header-section ast-flex site-header-section-left"
+          >
+            <div
+              class="ast-builder-layout-element ast-flex site-header-focus-item"
+              data-section="title_tagline"
+            >
+              <div
+                class="site-branding ast-site-identity"
+                itemtype="https://schema.org/Organization"
+                itemscope="itemscope"
+              >
+                <span class="site-logo-img">
+                  <a
+                    href="./index.html"
+                    class="custom-logo-link"
+                    rel="home"
+                    aria-current="page"
+                  >
+                    <img
+                      width="185"
+                      height="81"
+                      src="images/2023-01-zONA-LOGO-N-185x81.png"
+                      class="custom-logo snipcss0-0-0-1"
+                      alt="ZONA HITS TV"
+                      decoding="async"
+                      srcset="
+                        ./images/2023-01-zONA-LOGO-N-185x81.png    185w,
+                        ./images/2023-01-zONA-LOGO-N-300x131.png   300w,
+                        ./images/2023-01-zONA-LOGO-N-1024x449.png 1024w,
+                        ./images/2023-01-zONA-LOGO-N-768x337.png   768w,
+                        ./images/2023-01-zONA-LOGO-N-1536x673.png 1536w,
+                        ./images/2023-01-zONA-LOGO-N.png          1625w
+                      "
+                      sizes="(max-width: 185px) 100vw, 185px"
+                    />
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="site-header-primary-section-right site-header-section ast-flex ast-grid-right-section"
+          >
+            <div
+              class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item"
+              data-section="section-hb-menu-1"
+            >
+              <div class="ast-main-header-bar-alignment">
+                <div class="main-header-bar-navigation">
+                  <nav
+                    class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item"
+                    id="primary-site-navigation"
+                    aria-label="Navegación del sitio"
+                    itemtype="https://schema.org/SiteNavigationElement"
+                    itemscope="itemscope"
+                  >
+                    <div class="main-navigation ast-inline-flex">
+                      <ul
+                        id="ast-hf-menu-1"
+                        class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex submenu-with-border ast-menu-hover-style-zoom stack-on-mobile"
+                        aria-expanded="false"
+                      >
+                        <li
+                          id="menu-item-1754"
+                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1696 current_page_item menu-item-1754"
+                        >
+                          <a
+                            href="./index.html"
+                            aria-current="page"
+                            class="menu-link"
+                          >
+                            INICIO
+                          </a>
+                        </li>
+                        <li
+                          id="menu-item-2031"
+                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2031"
+                        >
+                          <a
+                            href="https://zonahitsperu.com/en-vivo/"
+                            class="menu-link"
+                          >
+                            EN VIVO
+                          </a>
+                        </li>
+                        <li
+                          id="menu-item-1361"
+                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1361"
+                        >
+                          <a
+                            href="https://zonahitsperu.com/about/"
+                            class="menu-link"
+                          >
+                            NOTICIAS
+                          </a>
+                        </li>
+                        <li
+                          id="menu-item-1360"
+                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1360"
+                        >
+                          <a
+                            href="https://zonahitsperu.com/residential/"
+                            class="menu-link"
+                          >
+                            DEPORTES
+                          </a>
+                        </li>
+                        <li
+                          id="menu-item-1359"
+                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1359"
+                        >
+                          <a
+                            href="https://zonahitsperu.com/commercial/"
+                            class="menu-link"
+                          >
+                            MÚSICA
+                          </a>
+                        </li>
+                        <li
+                          id="menu-item-1362"
+                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"
+                        >
+                          <a
+                            href="https://zonahitsperu.com/contact/"
+                            class="menu-link"
+                          >
+                            TECNOLOGÍA
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
